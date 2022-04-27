@@ -1,5 +1,5 @@
 #DEL1 import
-from fileinput import close
+import psutil
 import PySimpleGUI as sg
 
 sg.theme('DarkTeal')
@@ -9,15 +9,15 @@ red_x_base64 = b'/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAsJCQcJCQcJCQkJCwkJCQkJCQsJCws
 red_x_base64 = sg.red_x
 
 #DEL2 Layout
-layout = [[sg.Push(), sg.Text('stuff'), sg.Push(), sg.Button ('', image_data=red_x_base64, button_color=(sg.theme_background_color(), sg.theme_background_color()),border_width=0, key='Exit'), ],
-          [sg.Button(), sg.Button()],
-          [sg.Button(), sg.Button()]
+layout1 = [[sg.Push(), sg.Text('stuff'), sg.Push(), sg.Button ('', image_data=red_x_base64, button_color=(sg.theme_background_color(), sg.theme_background_color()),border_width=0, key='Exit'), ],
+          [sg.Button('pc Status', key='Pc_status'), sg.Button ('Minniräknare', key='Minniräknare')],
+          [sg.Button('?', key='?'), sg.Button('Black Jack', key='Black_Jack')]
 ]
 
 
 
 #DEL3 Window
-window = sg.Window('PSG System Dashbord', layout, no_titlebar=True, alpha_channel=1, grab_anywhere=True, resizable=True)
+window = sg.Window('PSG System Dashbord', layout1, no_titlebar=True, alpha_channel=1, grab_anywhere=True, resizable=True)
 
 #DEL4 Eventloops
 
@@ -27,6 +27,8 @@ while True:
 
     if event in (None, 'Exit'):
         break
+    elif event in (None, 'Pc_status'):
+        
 
 #DEL5 Window.close
 
